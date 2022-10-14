@@ -1,5 +1,4 @@
-function plot_u_k(agents, N)
-    endpoint = 1998;
+function plot_u_k(agents, N, endpoint)
     time = linspace(0, endpoint, endpoint);
     for i = 1:N
         plot(time, agents(1:endpoint,i,5));

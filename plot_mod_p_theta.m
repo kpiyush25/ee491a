@@ -1,5 +1,4 @@
-function plot_mod_p_theta(mod_p_theta, M)
-    endpoint = 1500;
+function plot_mod_p_theta(mod_p_theta, M, endpoint)
     time = linspace(0, endpoint, endpoint);
     for i = 1:M
         plot(time, mod_p_theta(1:endpoint,i));
