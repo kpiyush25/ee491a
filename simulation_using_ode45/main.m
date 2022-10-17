@@ -7,7 +7,7 @@ omega_d_inv = 1/omega_d;
 c_d = 0 + 1i*0;
 
 X_0 = [-1; 0.5; 2*sqrt(2); 5*sqrt(3); 15; 3*sqrt(3)];
-Y_0 = [-3*sqrt(3); -14; -3*sqrt(2); 0; 0.5; 9];
+Y_0 = [-3*sqrt(3); -15; -3*sqrt(2); 0; 0.5; 9];
 Theta_0 = [-pi/6; 0; pi/4; pi/3; pi/2; 2*pi/3];
 
 t_start = 0;
