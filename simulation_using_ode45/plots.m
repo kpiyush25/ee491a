@@ -1,6 +1,10 @@
 function plots(t, X, dXdt, len, omega_d_inv, M, N, c_d)
     figure(1);
     plot_trajectories(X, len, N);
+    hold on
+    plot_circle(0,0,5);
+    hold on
+    plot_circle(0,0,10);
     grid on
     axis equal;
 
@@ -15,4 +19,5 @@ function plots(t, X, dXdt, len, omega_d_inv, M, N, c_d)
     figure(4);
     plot_mod_p_m_theta(t, X, len, M, N);
     grid on
+
 end
