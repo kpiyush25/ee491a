@@ -11,10 +11,14 @@ function plot_trajectories(X, len, N)
 
     figure(1);
     for k = 1:N
-        plot(x_agents(:, k), y_agents(:, k));
+        plot(x_agents(:, k), y_agents(:, k),':');
         hold on;
     end
     title('Splay formation with BLF based control law');
     xlabel('X (m)');
     ylabel('Y (m)');
+    for k = 1:N
+        plot(x_agents(len, k), y_agents(len, k), 'diamond');
+        hold on;
+    end
 end
