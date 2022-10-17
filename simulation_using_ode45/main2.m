@@ -26,7 +26,7 @@ for k = 1:N
     X_init((k-1)*3 + 3, 1) = Y_0(k);
 end
 
-options=odeset('AbsTol',1e-12,'RelTol',1e-12);
+options=odeset('AbsTol',1e-8,'RelTol',1e-8);
 [t, X] = ode45(@integrating_function2, tspan, X_init,options);
 size(X)
 len = size(X, 1)
