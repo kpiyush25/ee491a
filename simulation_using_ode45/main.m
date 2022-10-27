@@ -22,7 +22,9 @@ for k = 1:N
     X_init((k-1)*3 + 3, 1) = Y_0(k);
 end
 
-[t, X] = ode45(@integrating_function, tspan, X_init);
+options=odeset('RelTol',1e-3, 'AbsTol',1e-4);
+[t, X] = ode45(@integrating_function, tspan, X_init, options);
+% [t, X] = ode45(@integrating_function, tspan, X_init);
 size(X)
 len = size(X, 1)
 dXdt = zeros(len, 3*N);
