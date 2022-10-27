@@ -1,5 +1,5 @@
 # ee491a
-This repository contains the work done in EE491A(UGP).
+This repository contains the work done in EE491A(UGP). The paper [Trajectory-Constrained Collective Circular Motion With Different Phase Arrangements](https://ieeexplore.ieee.org/document/8827634) has been simulated in MATLAB first and then simulation of a new problem has been done and is being improved for better results.
 
 ### Group : 
 [Ishir Roongta](https://github.com/isro01), [Piyush Kumar](https://github.com/kpiyush25)
