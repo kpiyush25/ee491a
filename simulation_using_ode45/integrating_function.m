@@ -9,7 +9,7 @@ function dXdt = integrating_function(t, X)
     for i = 1:5
         K(i) = 0.1;
     end
-    K(6) = -0.05;
+    K(6) = -0.005; % Chattering in u_k and e_k reduces to very great extent on changing it from -0.05 to -0.005
     N = 6;
     M = 6;
 
