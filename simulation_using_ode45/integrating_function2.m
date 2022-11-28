@@ -1,15 +1,16 @@
-function dXdt = integrating_function(t, X)
+function dXdt = integrating_function2(t, X)
     % Constants:
-    omega_d = 0.1;
+    omega_d = 0.2;
     omega_d_inv = 1/omega_d;
-    kappa = 0.005;
+    kappa = 0.002;
     c_d = 0 + 1i*0;
-    delta = 5;
+    delta = 0.5;
+    rad_inv = 1/(omega_d_inv + delta);
     K = zeros(6, 1);
     for i = 1:5
-        K(i) = 0.05;
+        K(i) = 0.01;
     end
-    K(6) = -0.05;
+    K(6) = -0.5;
     N = 6;
     M = 6;
 
@@ -28,15 +29,17 @@ function dXdt = integrating_function(t, X)
         e_k = X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d + 1i*omega_d_inv*exp(1i*X(3*(k-1)+1, 1));
         
          %  The code below is our proposition similar to equation (20) to solve the problem of the paper:
-        % dXdt(3*(k-1)+1, 1) = omega_d + (2*(delta^2)*kappa*real(conj(X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d)*exp((1i*X(3*(k-1)+1, 1)))))/(omega_d*((delta^2 - (abs(e_k))^2)^2));
+%         dXdt(3*(k-1)+1, 1) = omega_d + (2*(delta^2)*kappa*real(conj(X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d)*exp((1i*X(3*(k-1)+1, 1)))))/(omega_d*((delta^2 - (abs(e_k))^2)^2));
         
         % The code below is to avoid the inner circle:
         % u_k = omega_d + (2*((abs(e_k)^4) - delta^4)*kappa*real(conj(r_k - c_d)*exp((1i*theta_k))))/(omega_d*((abs(e_k))^4));
-        % dXdt(3*(k-1)+1, 1) = omega_d + (2*((abs(e_k)^4) - delta^4)*kappa*real(conj(X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d)*exp((1i*X(3*(k-1)+1, 1)))))/(omega_d*((abs(e_k))^4));
+        dXdt(3*(k-1)+1, 1) = rad_inv + (2*((abs(e_k)^4) - delta^4)*kappa*real(conj(X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d)*exp((1i*X(3*(k-1)+1, 1)))))/(omega_d*((abs(e_k))^4));
         
         % For experimental barrier lyapunov functions
-        dXdt(3*(k-1)+1, 1) = omega_d + (2*((abs(e_k)^4) - delta^4)*kappa*real(conj(X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d)*exp((1i*X(3*(k-1)+1, 1)))))/(omega_d*((abs(e_k))^4));
-
+%         dXdt(3*(k-1)+1, 1) = omega_d + (2*((abs(e_k)^4) - delta^4)*kappa*real(conj(X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d)*exp((1i*X(3*(k-1)+1, 1)))))/(omega_d*((abs(e_k))^4));
+%           dXdt(3*(k-1)+1, 1) = omega_d + (1*((abs(e_k)^2) - delta^2)*kappa*real(conj(X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d)*exp((1i*X(3*(k-1)+1, 1)))))/(omega_d*((abs(e_k))^3));
+        
+        
         for m = 1 : M
             dXdt(3*(k-1)+1, 1) = dXdt(3*(k-1)+1, 1) - K(m)*real(conj(p_theta(m,1))*1i*exp(1i*m*X(3*(k-1)+1, 1)));
         end
