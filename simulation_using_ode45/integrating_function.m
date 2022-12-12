@@ -13,7 +13,7 @@ function dXdt = integrating_function(t, X)
     N = 6;
     M = 6;
 
-    % Variables : 
+    % Variables :
     p_theta = zeros(M, 1);
     for m = 1 : M-1
         for k = 1 : N
@@ -27,7 +27,7 @@ function dXdt = integrating_function(t, X)
     for k = 1:N
         e_k = X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d + 1i*omega_d_inv*exp(1i*X(3*(k-1)+1, 1));
         dXdt(3*(k-1)+1, 1) = omega_d + (kappa/omega_d)*real(conj(X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d)*exp(1i*X(3*(k-1)+1, 1)))/(delta^2 - (abs(e_k))^2);
-        
+
         for m = 1 : M
             dXdt(3*(k-1)+1, 1) = dXdt(3*(k-1)+1, 1) - K(m)*real(conj(p_theta(m,1))*1i*exp(1i*m*X(3*(k-1)+1, 1)));
         end

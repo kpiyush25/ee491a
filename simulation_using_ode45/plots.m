@@ -1,4 +1,4 @@
-function plots(t, X, dXdt, len, omega_d_inv, M, N, c_d)
+function plots(t, X, dXdt, len, omega_d_inv, M, N, c_d, t_end)
     figure(1);
     plot_trajectories(X, len, N);
     hold on
@@ -9,7 +9,7 @@ function plots(t, X, dXdt, len, omega_d_inv, M, N, c_d)
     axis equal;
 
     figure(2);
-    plot_u_k(t, dXdt, len, N);
+    plot_u_k(t, dXdt, len, N, t_end);
     grid on
 
     figure(3);
