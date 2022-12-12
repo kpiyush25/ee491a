@@ -26,8 +26,7 @@ function dXdt = integrating_function2(t, X)
 
     dXdt = zeros(N*3,1);
     for k = 1:N
-%          e_k = X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d + 1i*omega_d_inv*exp(1i*X(3*(k-1)+1, 1));
-         e_k = X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d + 1i*2*exp(1i*X(3*(k-1)+1, 1));
+         e_k = X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d + 1i*omega_d_inv*exp(1i*X(3*(k-1)+1, 1));
 %         diff = abs(X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d + 1i*omega_d_inv*exp(1i*X(3*(k-1)+1, 1))) - abs(X(3*(k-1)+2, 1) + 1i*X(3*k, 1) - c_d)
 
          %  The code below is our proposition similar to equation (20) to solve the problem of the paper:
