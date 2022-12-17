@@ -2,7 +2,7 @@ clc; clear all; close all;
 tic;
 N = 6;
 M = 6;
-omega_d = 0.1;
+omega_d = 0.2;
 omega_d_inv = 1/omega_d;
 c_d = 0 + 1i*0;
 
@@ -32,6 +32,6 @@ for i = 1 : len
     dXdt(i, :) = integrating_function(t(i), X(i, :)');
 end
 
-plots(t, X, dXdt, len, omega_d_inv, M, N, c_d);
+plots(t, X, dXdt, len, omega_d_inv, M, N, c_d, t_end);
 
 toc

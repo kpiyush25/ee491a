@@ -4,7 +4,12 @@ function plots(t, X, dXdt, len, omega_d_inv, M, N, c_d, t_end)
     hold on
     plot_circle(0,0,5);
     hold on
-    plot_circle(0,0,10);
+%     plot_circle(0,0,10);
+    theta = 0:pi/100:2*pi;
+    delta = 5.5;
+    x = 0 + (omega_d_inv+delta)*cos(theta);
+    y = 0 + (omega_d_inv+delta)*sin(theta);
+    plot(x, y ,'o');
     grid on
     axis equal;
 
