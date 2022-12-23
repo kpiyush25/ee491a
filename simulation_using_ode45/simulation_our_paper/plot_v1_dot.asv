@@ -1,0 +1,9 @@
+function plot_v1_dot(kappa, K, )
+    v1_dot = zeros(len, N);
+    for i = 1:len
+        for k = 1:N
+            v1_dot(i, k) = v1_dot(i, k) + dXdt(i, 3*(k-1)+1) - rad_inv + K(k)*(1+dXdt(i, 3*(k-1)+1))
+    end
+    
+end
+
